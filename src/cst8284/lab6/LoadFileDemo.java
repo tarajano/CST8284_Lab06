@@ -38,21 +38,28 @@ public final class LoadFileDemo extends Application {
 		 * as described in Module 05 course notes
 		 */
 	  ScrollPane spWords = new ScrollPane();
-	  
-	  spWords.setHbarPolicy(ScrollBarPolicy.AS_NEEDED);
+	  spWords.setPrefSize(280, 320);
+	  spWords.setHbarPolicy(ScrollBarPolicy.NEVER);
 	  spWords.setVbarPolicy(ScrollBarPolicy.AS_NEEDED);
 
-		/* TODO: instantiate a new TextArea object called txtAreaFileInfo
+		/*: instantiate a new TextArea object called txtAreaFileInfo
 		 * with a preferred row count of 8 and a preferred Width of 280 pixels
 		 */
+	  TextArea txtAreaFileInfo = new TextArea();
+	  txtAreaFileInfo.setPrefWidth(280);
+	  txtAreaFileInfo.setPrefRowCount(8);
 
-		/* TODO: instantiate a new Button object called btnLoadWords, captioned
+		/* : instantiate a new Button object called btnLoadWords, captioned
 		 * as indicated in figure 1 of the Lab 6 document, using the btnLabel 
 		 * String passed as an argument to this method.  Set the minimum width 
 		 * of the button equal to the preferred width of spWords.  Use the 
 		 * following code, exactly as written, to capture mouse clicks on this 
 		 * button:
-		 
+		 */
+	  
+	  Button btnLoadWords = new Button(btnLabel);
+	  btnLoadWords.setMinWidth(280);
+
 		btnLoadWords.setOnAction(e -> {
 			// load a word list from the file selected and display file diagnostics
 			double loadTime = getLoadTime(textString, spWords);
@@ -60,7 +67,6 @@ public final class LoadFileDemo extends Application {
 			txtAreaFileInfo.clear();  // clear textarea of previous information
 			txtAreaFileInfo.setText(diagnostics);
 		});
-		*/
 		
 		/* TODO: instantiate a new VBox object called vbxWordList.  Add the 
 		 * 3 objects instantiated above, i.e. spWords, btnLoadWords, and 
@@ -68,6 +74,10 @@ public final class LoadFileDemo extends Application {
 		 * again following the instructions in Module 05 course notes.  Finally,
 		 * return vbxWordList.
 		 */
+		VBox vbxWordList = new VBox();
+		vbxWordList.getChildren().addAll(spWords, btnLoadWords, txtAreaFileInfo);
+		
+		 return vbxWordList;
 	}
 	
 	private double getLoadTime(LoadWords inputString, ScrollPane outputNode) {
