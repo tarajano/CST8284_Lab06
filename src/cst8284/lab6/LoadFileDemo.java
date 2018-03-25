@@ -69,7 +69,7 @@ public final class LoadFileDemo extends Application {
 			txtAreaFileInfo.setText(diagnostics);
 		});
 		
-		/* TODO: instantiate a new VBox object called vbxWordList.  Add the 
+		/*: instantiate a new VBox object called vbxWordList.  Add the 
 		 * 3 objects instantiated above, i.e. spWords, btnLoadWords, and 
 		 * txtAreaFileInfo, to vbxWordList using its getChildren() method,
 		 * again following the instructions in Module 05 course notes.  Finally,

@@ -15,9 +15,8 @@ import javafx.scene.text.Text;
  */
 public class LoadWordsAsStringBuilder extends LoadWords {
 
-  /**
-   * 
-   */
+  private int wordsCount;
+  
   public LoadWordsAsStringBuilder() {
     // TODO Auto-generated constructor stub
   }
@@ -27,15 +26,18 @@ public class LoadWordsAsStringBuilder extends LoadWords {
    */
   @Override
   public Text getFileContents(File f) {
-    StringBuilder txtStringBuilder = new StringBuilder(); 
+    StringBuilder txtStringBuilder = new StringBuilder();
     try {
       Scanner fileIn = new Scanner(f);
+      Counters.resetCtr();
       while (fileIn.hasNext()){
-        txtStringBuilder.append(fileIn.nextLine());
+        txtStringBuilder.append(fileIn.nextLine()+"\n");
+        wordsCount = Counters.getNextCtr();
       }
       fileIn.close();
     } catch(FileNotFoundException e){};
     return (new Text(txtStringBuilder.toString()));
+    //return (new Text("LoadWordsAsStringBuilderOverriden"));
   }
 
 }
