@@ -20,11 +20,12 @@ public final class LoadFileDemo extends Application {
 		setStage(pStage);
 		
 		BorderPane rootPane = new BorderPane();
-		/* TODO: Uncomment the following code once the code for the 
+		/*: Uncomment the following code once the code for the 
 		 * getWordListPane() method has been completed, as described below
+		 */
 		rootPane.setLeft(getWordListPane("StringBuilder", new LoadWordsAsStringBuilder()));
 		rootPane.setRight(getWordListPane("String", new LoadWordsAsString()));
-		*/
+		
 		getStage().setScene(new Scene(rootPane));
 		getStage().setTitle("Welcome to WordDump, a Scrollable List of Almost 80,000 Words");
 		getStage().show();	
@@ -40,7 +41,7 @@ public final class LoadFileDemo extends Application {
 	  ScrollPane spWords = new ScrollPane();
 	  spWords.setPrefSize(280, 320);
 	  spWords.setHbarPolicy(ScrollBarPolicy.NEVER);
-	  spWords.setVbarPolicy(ScrollBarPolicy.AS_NEEDED);
+	  spWords.setVbarPolicy(ScrollBarPolicy.ALWAYS);
 
 		/*: instantiate a new TextArea object called txtAreaFileInfo
 		 * with a preferred row count of 8 and a preferred Width of 280 pixels
